@@ -1,6 +1,7 @@
 import random
 
-def suggest(mood_flag):
+def suggest(mood_flag: int) -> None:
+    assert mood_flag == 0 or mood_flag == 1, 'Incorrect flag'
     good_mood_suggestions = [
         "work on your projects",
         "go out with your friends",
@@ -21,5 +22,3 @@ def suggest(mood_flag):
     elif mood_flag == 0:
         suggestion = random.choice(bad_mood_suggestions)
         print(f"Sorry to hear that. Maybe you should {suggestion}")
-    else:
-        print("Incorrect flag")
