@@ -11,7 +11,7 @@ def ask_about_mood(name: str) -> int:
         1 if answer is among "good moods" options
         0 if otherwise
     """
-    print(f"How's it going, {name}?")
+    print(f"How is it going, {name}?")
     ans = input()
     good_moods = ['ok', 'fine', 'good', 'alright']
     if ans.lower() in good_moods:
