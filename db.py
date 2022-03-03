@@ -1,4 +1,3 @@
-from operator import index
 import pandas as pd
 
 
@@ -13,7 +12,7 @@ def create_db(db_name: str):
 
     """
     df = pd.DataFrame(columns=["name", "mood"])
-    df.to_csv(db_name, index=False)
+    df.to_csv(db_name)
 
 
 def write_to_db(db_name: str, name: str, mood: str):
@@ -29,6 +28,6 @@ def write_to_db(db_name: str, name: str, mood: str):
         
     """
     df = pd.read_csv(db_name)
-    df['name'] = name
-    df['mood'] = mood
-    df.to_csv(db_name, index=False)
+    data = pd.DataFrame({"name": name, "mood": mood}, index=[0])
+    df = pd.concat([df, data])
+    df.to_csv(db_name)
